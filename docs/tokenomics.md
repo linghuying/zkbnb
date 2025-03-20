@@ -8,12 +8,12 @@ ZkBNB is not responsible for security of supported token contract. Please use an
 ## List Token
 ZkBNB use `AssetGovernance` contract to manage supported tokens. To list token on ZkBNB, call function `addAsset(address _assetAddress)` of AssetGovernance contract.
 
-Notice there is a listing fee for listing token, and fees are denominated using a specific token. The listing fee and fee token can be retrived by calling function `listingFee` and `listingFeeToken`. Make sure the sender that calls `addAsset` has enough fee token balance.
+Notice there is a listing fee for listing token, and fees are denominated using a specific token. The listing fee and fee token can be retrieved by calling function `listingFee` and `listingFeeToken`. Make sure the sender that calls `addAsset` has enough fee token balance.
 
 ## Fee
 In ZkBNB the cost of every transaction comes from two parts:
 
-- **L2 part**: every transaction needs to read or write state storage, and ZkBNB prover needs to generate a SNARK proof for every transaction. This part depends on the use of hardware resources and is therefor invariable;
+- **L2 part**: every transaction needs to read or write state storage, and ZkBNB prover needs to generate a SNARK proof for every transaction. This part depends on the use of hardware resources and is therefore invariable;
 
 - **L1 part**: ZkBNB must pay BNB gas to commit, verify and execute L2 blocks by sending corresponding L1 transaction. The L1 fees need to be averaged per L2 transaction which is orders of magnitude cheaper than the cost of normal BNB/BEP20 transfers. In addition, for the special transaction types which need to be executed on contract such as `Withdraw` and `WithdrawNft`, there is extra gas cost to be covered.
 

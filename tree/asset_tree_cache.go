@@ -84,7 +84,7 @@ func (c *AssetTreeCache) CleanChanges() {
 	c.changesLock.Unlock()
 }
 
-// Internal method to that marks if changes happend to tree eviced from LRU
+// Internal method to that marks if changes happened to tree eviced from LRU
 func (c *AssetTreeCache) onDelete(k, v interface{}) {
 	c.changesLock.Lock()
 	if v.(bsmt.SparseMerkleTree).LatestVersion()-v.(bsmt.SparseMerkleTree).RecentVersion() > 1 {
